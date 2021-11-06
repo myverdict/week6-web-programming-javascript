@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- https://cdnjs.com/libraries/flickity -->
+
+    <!-- Flickity CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css"
+        integrity="sha512-BiFZ6oflftBIwm6lYCQtQ5DIRQ6tm02svznor2GYQOfAlT3pnVJ10xCrU3XuXnUrWQ4EG8GKxntXnYEdKY0Ugg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Flickity JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.pkgd.min.js"
+        integrity="sha512-cA8gcgtYJ+JYqUe+j2JXl6J3jbamcMQfPe0JOmQGDescd+zqXwwgneDzniOd3k8PcO7EtTW6jA7L4Bhx03SXoA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <style>
+        body { 
+            background: mediumvioletred; 
+            margin: 20px;
+            padding: 15px;
+        }
+        h1 { 
+            background-color: khaki; 
+            margin: 20px;
+            padding: 15px;
+            text-align: center;
+        }
+        #attributes { 
+            background-color: antiquewhite; 
+            margin: 20px;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Flickity Carousel of Winter Photographs</h1>
+
+    <div class="main-carousel">
+        <div class="carousel-cell"><img src="images/aaron-burden.jpg" height="300px"></div>
+        <div class="carousel-cell"><img src="images/filip-bunkens.jpg" height="300px"></div>
+        <div class="carousel-cell"><img src="images/thomas-lipke.jpg" height="300px"></div>
+        <div class="carousel-cell"><img src="images/timothy-eberly.jpg" height="300px"></div>
+    </div><br><br>
+    
+    <div id="attributes">
+        <p>
+            You can find the Flickity documentation, and more examples here 
+            <a href="https://flickity.metafizzy.co/" target="_blank">Flickity</a>
+        </p>
+
+        <p>
+            Photo by
+            <a href="https://unsplash.com/@aaronburden?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Aaron Burden</a>, 
+            <a href="https://unsplash.com/@thebeardbe?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Filip Bunkens</a>, 
+            <a href="https://unsplash.com/@t_lipke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Thomas Lipke</a>, and
+            <a href="https://unsplash.com/@timothyeberly?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Timothy Eberly</a>
+            on <a href="https://unsplash.com/s/photos/winter?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText" target="_blank">Unsplash</a>
+        </p>
+    </div>
+
+    <script>
+        let flickity = new Flickity('.main-carousel', {
+            // Options go here - see Flickity documentation
+            wrapAround: true,
+            autoPlay: true,         // animate
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing Parallelograms</title>
+    <style>
+        /* Canvas is a white rectangle by default with no border */
+        canvas { border: 1px palevioletred solid; }
+    </style>
+</head>
+
+<body>
+    <!-- approx. 300 by 150 rectangle shape by default -->
+    <!-- <canvas></canvas> -->
+
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+
+    <script>
+        // find the canvas reference element on the document
+        let canvas = document.querySelector('#canvas');
+
+        // create a drawing context that does the drawing on the canvas
+        let context = canvas.getContext('2d');
+
+        // draw a square or a rectangle context along with coordinates & size
+        // fillRect(x, y, width, height) --> fills the box with black default color 
+        context.fillRect(10, 10, 100, 100);     // square
+        context.fillRect(120, 20, 50, 200);     // vertical rectangle
+
+        // strokeRect(x, y, width, height) --> draws a default black outline
+        context.strokeRect(200, 300, 100, 150); // vertical rectangle
+
+
+        // cyan square
+        context.fillStyle = 'cyan';             // change filled colors
+        context.fillRect(400, 50, 100, 100);    // draw till the right border of the canvas
+        
+        // red outlined square
+        context.strokeStyle = 'red';            // change outline color
+        context.lineWidth = 10;                 // change width of the outline
+        context.strokeRect(350, 350, 50, 50);   // square
+
+        
+        // yellow square
+        context.fillStyle = 'yellow';           // change filled colors
+        context.fillRect(220, 100, 150, 150);   // square
+        
+        // drawing a filled square with an outline
+        // contd. yellow square with blue square border
+        context.strokeStyle = 'blue';           // change outline color
+        context.lineWidth = 5;                  // change width of the outline
+        context.strokeRect(220, 100, 150, 150); // square
+    </script>
+</body>
+
+</html>

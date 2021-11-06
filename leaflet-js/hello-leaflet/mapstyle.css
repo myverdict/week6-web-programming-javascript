@@ -1,0 +1,8 @@
+/* File used with hello_leaflet_maps.html */
+
+/* map container with a defined height & width */
+#college-mapid {
+    height: 500px;
+    width: 600px;
+    border: 1px solid salmon;
+}

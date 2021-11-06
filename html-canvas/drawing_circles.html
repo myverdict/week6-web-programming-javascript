@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing circles</title>
+    <style>
+        canvas { border: 1px solid black; }
+    </style>
+</head>
+
+<body>
+    <canvas id='canvas' width="500" height="500"></canvas>
+
+    <script>
+        let canvas = document.querySelector('#canvas');
+        let context = canvas.getContext('2d');
+
+        // 1. create a path --> where is the circle going to go on the page
+        context.beginPath();
+        // 2. set up the circle: arc(x, y, radius, startAngle, endAngle can be 2 * Math.PI or 6.3)
+        context.arc(250, 250, 75, 0, 6.3);
+
+        context.strokeStyle = 'darkblue';
+        context.lineWidth = 15;
+        // 3. draw the circle
+        context.stroke();
+
+
+        // to draw another circle segment
+        context.beginPath();
+        context.arc(75, 75, 50, 0, Math.PI);        // exact half circle
+        
+        context.strokeStyle = 'violet'
+        context.lineWidth = 5;
+        context.stroke();
+
+
+        // drawing another circle segment
+        context.beginPath();
+        context.arc(350, 350, 25, 0, Math.PI/2);    // exact quarter circle
+
+        context.strokeStyle = 'green'
+        context.lineWidth = 5;
+        context.stroke();
+    </script>
+</body>
+
+</html>

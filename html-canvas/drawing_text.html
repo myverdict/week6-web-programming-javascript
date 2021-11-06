@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drawing Text</title>
+    <style>
+        canvas { border: 1px solid black; }
+    </style>
+</head>
+
+<body>
+    <canvas id='canvas' width="500" height="500"></canvas>
+
+    <script>
+        let canvas = document.querySelector('#canvas');
+        let context = canvas.getContext('2d');
+
+        context.fillStyle = 'magenta';
+        context.font = '50px Courier';
+
+        // draw filled text --> fillText('text', x, y)
+        context.fillText('Hello World!', 50, 50);
+        
+        context.strokeStyle = 'blue';
+        // draw outlined text --> strokeText('text', x, y)
+        context.strokeText('Some more text', 50, 200);
+    </script>
+</body>
+
+</html>

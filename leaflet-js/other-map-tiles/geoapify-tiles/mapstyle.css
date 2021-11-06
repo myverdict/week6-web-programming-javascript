@@ -1,0 +1,8 @@
+/* File used with mall_of_america.html */
+
+/* map container with a defined height & width */
+#mapid {
+    height: 600px;
+    width: 600px;
+    border: 1px solid plum;
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse Events: draws circles</title>
+    <style>
+        canvas { border: 1px black solid; }
+    </style>
+</head>
+
+<body>
+    <p>Drag the mouse on the canvas</p>
+    <canvas id="canvas" height="500" width="500"></canvas><br>
+
+    <label for="color-picker">Pick a color: </label>
+    <input type="color" name="color-picker" id="color-picker"><br>
+
+    <label for="rad">Circle radius size: </label>
+    <input type="range" name="radius" id="rad"><br><br>
+
+    <button id="clear">Clear</button>
+
+
+    <script>
+        let colorInput = document.querySelector('#color-picker');
+        let circleRadius = document.querySelector('#rad');
+        let clearButton = document.querySelector('#clear');
+
+        let canvas = document.querySelector('#canvas');
+        let context = canvas.getContext('2d');
+
+        // Keep track of whether the mouse button has been pressed down or not.
+        // Think of this as whether the user is drawing or not, is their brush on the canvas?
+        let mousedown = false;
+
+        // if mouse is pressed down, draw on the canvas
+        canvas.addEventListener('mousedown', function() {
+            mousedown = true;
+        })
+
+        // if mouse is not pressed down, do not draw
+        canvas.addEventListener('mouseup', function() {
+            mousedown = false;
+        })
+
+        // if mouse leaves the canvas then stop drawing
+        canvas.addEventListener('mouseout', function() {
+            mousedown = false;
+        })
+
+        // if mouse moves in canvas, draw on the canvas
+        canvas.addEventListener('mousemove', function() {
+            // If the mouse button is not pressed down, do not draw; 
+            if (!mousedown) { 
+                return;             // stop processing
+            }
+
+            // event is a built-in variable, contains the event that triggered this function
+            // get the x, y location of the event
+            // offsetX, offsetY, may not work in older browsers
+            let x = event.offsetX;
+            let y = event.offsetY;
+
+            // 1. create a path --> where is the circle going to go on the page
+            context.beginPath();
+            // 2. set up the circle: arc(x, y, radius, startAngle, endAngle can be 2 * Math.PI or 6.3)
+            context.arc(x, y, circleRadius.value, 0, 2 * Math.PI);
+
+            context.strokeStyle = colorInput.value;     // color for circle outline
+            context.lineWidth = 5;
+            context.fillStyle = colorInput.value;       // color filled in circle
+            context.fill();
+
+            // 3. draw the circle
+            context.stroke();
+        })
+
+        // draw a white rectangle/square the size of the canvas
+        // no way to remove anything from a canvas
+        clearButton.addEventListener('click', function() {
+            context.fillStyle = 'white';
+            context.fillRect(0, 0, 500, 500);
+        })
+    </script>
+</body>
+
+</html>
