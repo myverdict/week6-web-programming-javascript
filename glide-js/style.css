@@ -1,0 +1,41 @@
+body {
+    color: palevioletred;
+    background: #333;
+}
+
+h1 {
+    text-align: center;
+}
+
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* height of this element is equal to 75% of the viewport height */
+    min-height: 75vh;
+}
+
+.glide__slide img {
+    width: 100%;
+}
+
+.glide__slide {
+    filter: blur(2px);
+    opacity: 0.7;
+}
+
+.glide__slide--active {
+    filter: none;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.glide__slides {
+    overflow: visible;
+}
+
+a {
+    text-decoration: none;
+    color: yellowgreen;
+}
