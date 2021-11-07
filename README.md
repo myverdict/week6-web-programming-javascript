@@ -16,6 +16,6 @@ JS Libraries: maps, carousels, charts
   <li>ChartJS: graphs and chart</li>
 </ul>
 
-<a href="https://myverdict.github.io/week5-web-programming-javascript/index.html">
+<a href="https://myverdict.github.io/week6-web-programming-javascript/index.html">
     Click here to view live!</a> 
     
