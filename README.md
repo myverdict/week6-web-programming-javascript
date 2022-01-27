@@ -3,7 +3,7 @@ JS Libraries: maps, carousels, charts
 
 <h1>WEB PROGRAMMING</h1>
 
-<h2>Week 5 Labs: JavaScript (JS) Introduction: JSON</h2>
+<h2>Week 6 Labs: JavaScript (JS) Introduction: JSON</h2>
 
 <ul>
   <li>Local Storage: on browsers</li>
