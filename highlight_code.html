@@ -1,68 +1,73 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
     <title>HighlightJS: code</title>
 
     <!-- https://cdnjs.com/libraries/highlight.js -->
 
-    <!-- HighlightJS CSS: Horizon Light theme used -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/base16/horizon-light.min.css"
-        integrity="sha512-FWEm8inOQkOfnKDUTa6xvKF5Xx34TNRYhkY4QFyuLXMeeOLcHEYuh12ouQu786TeFRamKcJIIxTWF3BDOwn91A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- HighlightJS CSS: a11y-dark theme used -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/a11y-dark.min.css"
+      integrity="sha512-Vj6gPCk8EZlqnoveEyuGyYaWZ1+jyjMPg8g4shwyyNlRQl6d3L9At02ZHQr5K6s5duZl/+YKMnM3/8pDhoUphg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <!-- HighlightJS script -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"
-        integrity="sha512-Pbb8o120v5/hN/a6LjF4N4Lxou+xYZ0QcVF8J6TWhBbHmctQWd8O6xTDmHpE/91OjPzCk4JRoiJsexHYg4SotQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
 
-    <script>hljs.highlightAll();</script>
+    <script>
+      hljs.highlightAll();
+    </script>
 
     <style>
-        body { margin: 25px; }
-        h1 { text-align: center; }
-        h2 { color: blueviolet; }
+      body {
+        margin: 25px;
+      }
+      h1 {
+        text-align: center;
+      }
+      h2 {
+        color: blueviolet;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>Programming Languages</h1>
 
     <h2>Python</h2>
     <pre>
-        <code class="python">
-            for character in "abc":
-                print(character.upper())  # Prints A, then B, then C
-        </code>
+      <code class="python">
+        for character in "abc":
+          print(character.upper())  # Prints A, then B, then C
+      </code>
     </pre>
-
 
     <h2>C#</h2>
     <pre>
-        <code class="csharp">
-            public class Cat {
-                // Method of the Cat class 
-                public void speak() {
-                    Console.writeline("Meow!");
-                }
-            }
-        </code>
+      <code class="csharp">
+        public class Cat {
+          // Method of the Cat class
+          public void speak() {
+            Console.writeline("Meow!");
+          }
+        }
+      </code>
     </pre>
-
 
     <h2>Java</h2>
     <pre>
-        <code class="java">
-            String[] names = { "Zoe", "Chloe", "Joey" };
+      <code class="java">
+        String[] names = { "Zoe", "Chloe", "Joey" };
 
-            // Print all of the names in the array
-            for (String name in names) {
-                System.out.println(name);
-            }
-        </code>
+        // Print all of the names in the array
+        for (String name in names) {
+          System.out.println(name);
+        }
+      </code>
     </pre>
-</body>
-
+  </body>
 </html>
