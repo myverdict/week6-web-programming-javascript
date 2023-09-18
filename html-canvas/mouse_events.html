@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Canvas Events</title>
     <style>
-        canvas { border: 1px solid violet; }
+      canvas {
+        border: 1px solid violet;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <canvas id="canvas" width="500" height="500"></canvas>
 
     <script>
-        let canvas = document.querySelector('#canvas');
-        let context = canvas.getContext('2d');
+      let canvas = document.querySelector("#canvas");
+      let context = canvas.getContext("2d");
 
-        // to draw where the canvas is clicked
-        canvas.addEventListener('click', function() {
-            // 1. find where the canvas is clicked i.e., the (x, y) coordinates
-            // event is a built-in variable, contains the event that triggered this function
-            // get the x, y location of the event
-            // offsetX, offsetY, may not work in older browsers
-            let x = event.offsetX;
-            let y = event.offsetY;
+      // to draw where the canvas is clicked
+      canvas.addEventListener("click", function () {
+        // 1. find where the canvas is clicked i.e., the (x, y) coordinates
+        // event is a built-in variable, contains the event that triggered this function
+        // get the x, y location of the event
+        // offsetX, offsetY, may not work in older browsers
+        let x = event.offsetX;
+        let y = event.offsetY;
 
-            // 2. draw the box where clicked
-            // context.fillRect(x, y, 30, 30);          // cursor appears on top left corner of the box
-            // context.fillRect(x-15, y-15, 30, 30);    // cursor appears in the center of the box
-            let size = 5;
-            context.fillRect(x-(size/2), y-(size/2), size, size);
-        })
+        // 2. draw the box where clicked
+        // context.fillRect(x, y, 30, 30);          // cursor appears on top left corner of the box
+        // context.fillRect(x-15, y-15, 30, 30);    // cursor appears in the center of the box
+        let size = 5;
+        context.fillRect(x - size / 2, y - size / 2, size, size);
+      });
     </script>
-</body>
-
+  </body>
 </html>

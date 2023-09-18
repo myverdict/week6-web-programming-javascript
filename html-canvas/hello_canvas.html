@@ -1,44 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML Canvas</title>
     <style>
-        /* Canvas is a white rectangle by default with no border */
-        canvas { border: 1px solid red; }
+      /* Canvas is a white rectangle by default with no border */
+      canvas {
+        border: 1px solid red;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <!-- 
-        To add a canvas to a page, add a 'canvas' html element and use JS to
-        draw on the canvas.
-        The 'canvas' element is an empty element. It doesn't need any content.
+  <body>
+    <!--
+      To add a canvas to a page, add a 'canvas' html element and use JS to
+      draw on the canvas.
+      The 'canvas' element is an empty element. It doesn't need any content.
     -->
     <canvas id="canvas" width="500" height="500"></canvas>
 
-
     <script>
-        // find the canvas reference element on the document
-        let canvas = document.querySelector('#canvas');
+      // find the canvas reference element on the document
+      let canvas = document.querySelector("#canvas");
 
-        // create a drawing context that does the drawing on the canvas
-        let context = canvas.getContext('2d');
+      // create a drawing context that does the drawing on the canvas
+      let context = canvas.getContext("2d");
 
-        // x shifts to the right & y shifts down
-        // draw a square or a rectangle context along with coordinates
-        // fillRect(top left corner x, top left corner y, width, height)
-        // --> default color filled in is black
-        context.fillRect(20, 20, 100, 100);         // drawing a square
+      // x shifts to the right & y shifts down
+      // draw a square or a rectangle context along with coordinates
+      // fillRect(top left corner x, top left corner y, width, height)
+      // --> default color filled in is black
+      context.fillRect(20, 20, 100, 100); // drawing a square
 
-        // draws outlines
-        // strokeRect(top left corner x, top left corner y, width, height) 
-        // --> draws a default black outline
-        context.strokeRect(200, 300, 100, 150);     // drawing a vertical rectangle
+      // draws outlines
+      // strokeRect(top left corner x, top left corner y, width, height)
+      // --> draws a default black outline
+      context.strokeRect(200, 300, 100, 150); // drawing a vertical rectangle
     </script>
-</body>
-
+  </body>
 </html>

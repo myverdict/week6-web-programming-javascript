@@ -1,27 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Soda bar chart</title>
 
     <!-- Chart JS script -->
     <!-- This page loads as soon as the page loads, so no async defer is used here -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- 
-        Our JS script: async defer makes our JS script run after the whole page is loaded, i.e., 
-        this will load after ChartJS & the html is loaded.
+    <!--
+      Our JS script: async defer makes our JS script run after the whole page is loaded,
+      i.e., this will load after ChartJS & the html is loaded.
     -->
     <script async defer src="hello_chart.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>Unscientific survey of soda beverage preferences</h1>
 
     <canvas id="soda-chartID"></canvas>
-</body>
-
+  </body>
 </html>

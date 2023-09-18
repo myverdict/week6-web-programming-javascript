@@ -1,63 +1,84 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>JS: Import Export</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
 
     <script type="module" src="script.js"></script>
-    
-    <style>
-        code {
-            font-weight: bold;
-            font-size: large;
-            color: blue;
-        }
-    </style>
-</head>
 
-<body>
+    <style>
+      code {
+        font-weight: bold;
+        font-size: large;
+        color: blue;
+      }
+    </style>
+  </head>
+
+  <body>
     <h1>Modules in client-side JavaScript</h1>
 
     <p>
-        This page has two JavaScript files, <code>script.js</code> and <code>data.js</code>.<br>
-        <code>script.js</code> is the main code file, and it would like to import <code>data.js</code>.
+      This page has two JavaScript files, <code>script.js</code> and
+      <code>data.js</code>.<br />
+      <code>script.js</code> is the main code file, and it would like to import
+      <code>data.js</code>.
     </p>
 
     <ul>
-        <li>
-            In the <code>index.html</code> file include only <code>script.js</code> and 
-            include <code>type="module"</code> attribute in the <code>script</code> tag 
-            of the <code>head</code> section.<br>
-            A module is a function or group of similar functions.
-        </li><br>
+      <li>
+        In the <code>index.html</code> file include only
+        <code>script.js</code> and include <code>type="module"</code> attribute
+        in the <code>script</code> tag of the <code>head</code> section.<br />
+        A module is a function or group of similar functions.
+      </li>
+      <br />
 
-        <li>
-            <code>data.js</code> needs to export whatever other script files will need. Examples 
-            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export" target="_blank">MDN Web Docs: export</a>
-        </li><br>
+      <li>
+        <code>data.js</code> needs to export whatever other script files will
+        need. Examples
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export"
+          target="_blank"
+        >
+          MDN Web Docs: export
+        </a>
+      </li>
+      <br />
 
-        <li>
-            <code>script.js</code> will import whatever it needs from <code>data.js</code>. Examples 
-            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import" target="_blank">MDN Web Docs: import</a>
-        </li><br>
+      <li>
+        <code>script.js</code> will import whatever it needs from
+        <code>data.js</code>. Examples
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"
+          target="_blank"
+        >
+          MDN Web Docs: import
+        </a>
+      </li>
+      <br />
 
-        <li>
-            To view this page, you'll need to serve it from a web server. WebStorm will do this for you, when you open a
-            page from the WebStorm IDE using the browser icons in the top left.
-        </li><br>
-        
-        <li>
-            Not using WebStorm? Install Node.js and then run <code>npx http-server</code> from the directory 
-            your HTML file is in, to start a basic HTTP server.<br>
-            You'll see output from the command with a URL you can use to view your page.<br>
-            It will be easier if your file is already called <code>index.html</code> otherwise add the html 
-            file name to the end of the URL.
-        </li><br>
+      <li>
+        To view this page, you'll need to serve it from a web server. WebStorm
+        will do this for you, when you open a page from the WebStorm IDE using
+        the browser icons in the top left.
+      </li>
+      <br />
+
+      <li>
+        Not using WebStorm? Install Node.js and then run
+        <code>npx http-server</code> from the directory your HTML file is in, to
+        start a basic HTTP server.<br />
+        You'll see output from the command with a URL you can use to view your
+        page.<br />
+        It will be easier if your file is already called
+        <code>index.html</code> otherwise add the html file name to the end of
+        the URL.
+      </li>
+      <br />
     </ul>
 
     <p>The following data was read from a module by the script file:</p>
     <div id="example-data"></div>
-</body>
-
+  </body>
 </html>

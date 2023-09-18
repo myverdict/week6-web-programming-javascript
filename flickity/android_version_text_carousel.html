@@ -1,68 +1,78 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <!-- https://cdnjs.com/libraries/flickity -->
+  <head>
+    <!-- https://flickity.metafizzy.co/#cdn -->
 
     <!-- Flickity CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css"
-        integrity="sha512-BiFZ6oflftBIwm6lYCQtQ5DIRQ6tm02svznor2GYQOfAlT3pnVJ10xCrU3XuXnUrWQ4EG8GKxntXnYEdKY0Ugg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
 
     <!-- Flickity JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.pkgd.min.js"
-        integrity="sha512-cA8gcgtYJ+JYqUe+j2JXl6J3jbamcMQfPe0JOmQGDescd+zqXwwgneDzniOd3k8PcO7EtTW6jA7L4Bhx03SXoA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     <style>
-        body { background: #669973; color: whitesmoke; }
-        h1 { text-align: center; }
-        p { text-align: center; font-size: 30px; }
-        .main-carousel { margin-bottom: 50px; }
-        .carousel-cell {
-            width: 100%;
-            height: 100px;
-            text-align: center;
-            font-size: 40px;
-            position: absolute;
-            transform: translateY(-20%);
-            top: 50%;
-        }
+      body {
+        background: #669973;
+        color: whitesmoke;
+      }
+      h1 {
+        text-align: center;
+      }
+      p {
+        text-align: center;
+        font-size: 30px;
+      }
+      .main-carousel {
+        margin-bottom: 50px;
+      }
+      .carousel-cell {
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        font-size: 40px;
+        position: absolute;
+        transform: translateY(-20%);
+        top: 50%;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <h1>Select your Android Version</h1>
 
     <div class="main-carousel">
-        <div class="carousel-cell">KitKat</div>
-        <div class="carousel-cell">Lollipop</div>
-        <div class="carousel-cell">Marshmallow</div>
-        <div class="carousel-cell">Nougat</div>
-        <div class="carousel-cell">Oreo</div>
-        <div class="carousel-cell">Pie</div>
-    </div><br>
+      <div class="carousel-cell">KitKat</div>
+      <div class="carousel-cell">Lollipop</div>
+      <div class="carousel-cell">Marshmallow</div>
+      <div class="carousel-cell">Nougat</div>
+      <div class="carousel-cell">Oreo</div>
+      <div class="carousel-cell">Pie</div>
+    </div>
+    <br />
 
     <p id="selected">
-        <!-- Will display the selected Android version -->
+      <!-- Will display the selected Android version -->
     </p>
 
-
     <script>
-        let selectedVersion = document.querySelector('#selected')
+      let selectedVersion = document.querySelector("#selected");
 
-        // create a Flickity object
-        let flickity = new Flickity('.main-carousel', {
-            // Options go here - see Flickity documentation
-            wrapAround: true,
-        })
+      // create a Flickity object
+      let flickity = new Flickity(".main-carousel", {
+        // Options go here - see Flickity documentation
+        wrapAround: true,
+      });
 
-        // Event listener for user clicking on one of the carousel cells
-        flickity.on('staticClick', function (event, pointer, cellElement, cellIndex) {
-            let androidVersion = cellElement.innerHTML
-            selectedVersion.innerHTML = `You have selected ${androidVersion}`
-        })
+      // Event listener for user clicking on one of the carousel cells
+      flickity.on(
+        "staticClick",
+        function (event, pointer, cellElement, cellIndex) {
+          let androidVersion = cellElement.innerHTML;
+          selectedVersion.innerHTML = `You have selected ${androidVersion}`;
+        }
+      );
     </script>
-</body>
-
+  </body>
 </html>

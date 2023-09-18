@@ -2,7 +2,7 @@
 
 /* map container with a defined height & width */
 #bridge-mapid {
-    height: 500px;
-    width: 600px;
-    border: 1px solid salmon;
+  height: 500px;
+  width: 600px;
+  border: 1px solid salmon;
 }

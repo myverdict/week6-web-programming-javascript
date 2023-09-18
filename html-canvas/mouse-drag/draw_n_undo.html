@@ -1,145 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Draw & Undo</title>
     <style>
-        canvas { border: 1px solid peru; }
+      canvas {
+        border: 1px solid peru;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <canvas id="canvas" width="600" height="600"></canvas><br><br>
+  <body>
+    <canvas id="canvas" width="600" height="600"></canvas><br /><br />
 
     <div>
-        <button id="undoButton">Undo</button>
+      <button id="undoButton">Undo</button>
     </div>
 
-
     <script>
-        let canvas = document.querySelector('#canvas');
-        let context = canvas.getContext('2d');
+      let canvas = document.querySelector("#canvas");
+      let context = canvas.getContext("2d");
 
-        let undoButton = document.querySelector('#undoButton');
-        let clearButton = document.querySelector('#clearButton');
+      let undoButton = document.querySelector("#undoButton");
+      let clearButton = document.querySelector("#clearButton");
 
-        // Stores all versions of the drawing the user has made. 
-        let history = [];   
+      // Stores all versions of the drawing the user has made.
+      let history = [];
 
-        // initial boolean value to record if mouse is pressed down when page loads
-        let mousePressed = false;  
+      // initial boolean value to record if mouse is pressed down when page loads
+      let mousePressed = false;
 
-        // add event listeners to the canvas for mouse actions
-        // 1. if mouse is pressed down then set 'mousePressed' to true
-        // and draw where clicked
-        canvas.addEventListener('mousedown', function() {
-            mousePressed = true;
-            draw();
-        })
+      // add event listeners to the canvas for mouse actions
+      // 1. if mouse is pressed down then set 'mousePressed' to true
+      // and draw where clicked
+      canvas.addEventListener("mousedown", function () {
+        mousePressed = true;
+        draw();
+      });
 
-        // 2. if mouse is NOT pressed, then set 'mousePressed' to false
-        // and save the last drawn image on the canvas
-        canvas.addEventListener('mouseup', function() {
-            mousePressed = false;
-            saveHistory();
-        })
+      // 2. if mouse is NOT pressed, then set 'mousePressed' to false
+      // and save the last drawn image on the canvas
+      canvas.addEventListener("mouseup", function () {
+        mousePressed = false;
+        saveHistory();
+      });
 
-        // 3. if mouse is not on the canvas, then set 'mousePressed' to false
-        // and save the last drawn image on the canvas
-        canvas.addEventListener('mouseout', function() {
-            mousePressed = false;
-            // saveHistory();
-        })
+      // 3. if mouse is not on the canvas, then set 'mousePressed' to false
+      // and save the last drawn image on the canvas
+      canvas.addEventListener("mouseout", function () {
+        mousePressed = false;
+        // saveHistory();
+      });
 
-        // 4. if mouse is on the canvas then set 'mousePressed' to true
-        // WARNING: works even if the mouse is NOT pressed
-        // canvas.addEventListener('mouseenter', function() {
-        //     mousePressed = true;
-        // })
+      // 4. if mouse is on the canvas then set 'mousePressed' to true
+      // WARNING: works even if the mouse is NOT pressed
+      // canvas.addEventListener("mouseenter", function () {
+      //   mousePressed = true;
+      // });
 
-        // 5. if mouse moves inside the canvas then start drawing on the canvas
-        canvas.addEventListener('mousemove', function() {
-            // if mouse is NOT pressed inside the canvas, do not draw
-            if (!mousePressed) {
-                return;             // stop processing
-            }
-
-            draw();                 // else draw
-        })
-
-        // if the undo button is clicked, undo the last drawn action
-        undoButton.addEventListener('click', function() {
-            undoHistory();
-        })
-
-        // function actually draws something on the canvas
-        function draw() {
-            // get the x,y coordinates where clicked to begin drawing on the canvas
-            let x = event.offsetX;
-            let y = event.offsetY;
-
-            // draw a rectangle where clicked --> fillRect(x, y, width, height)
-            context.fillRect(x-5, y-5, 15, 15);
+      // 5. if mouse moves inside the canvas then start drawing on the canvas
+      canvas.addEventListener("mousemove", function () {
+        // if mouse is NOT pressed inside the canvas, do not draw
+        if (!mousePressed) {
+          return; // stop processing
         }
 
-        // function used in the 'mouseup' & 'mouseout' event listeners
-        function saveHistory() {
-            // canvas.toDataURL(); --> convert image to data representation
-            // useful for easy storing of images
-            let picture = canvas.toDataURL();
+        draw(); // else draw
+      });
 
-            // The if condition compares the current image on the canvas with the last 
-            // saved image in the 'history' array.
-            // If image is not saved, i.e., the last drawn image is different from
-            // the last saved image, then save the new image in the 'history' array.
-            if (history[history.length - 1] != picture) {
-                // save/push the new unsaved image onto the 'history' array
-                history.push(picture);
-            }
+      // if the undo button is clicked, undo the last drawn action
+      undoButton.addEventListener("click", function () {
+        undoHistory();
+      });
+
+      // function actually draws something on the canvas
+      function draw() {
+        // get the x,y coordinates where clicked to begin drawing on the canvas
+        let x = event.offsetX;
+        let y = event.offsetY;
+
+        // draw a rectangle where clicked --> fillRect(x, y, width, height)
+        context.fillRect(x - 5, y - 5, 15, 15);
+      }
+
+      // function used in the 'mouseup' & 'mouseout' event listeners
+      function saveHistory() {
+        // canvas.toDataURL(); --> convert image to data representation
+        // useful for easy storing of images
+        let picture = canvas.toDataURL();
+
+        // The if condition compares the current image on the canvas with the last
+        // saved image in the 'history' array.
+        // If image is not saved, i.e., the last drawn image is different from
+        // the last saved image, then save the new image in the 'history' array.
+        if (history[history.length - 1] != picture) {
+          // save/push the new unsaved image onto the 'history' array
+          history.push(picture);
         }
+      }
 
-        /* 
-            If the user has just drawn, you need to remove the last drawing from the 
-            history; and then remove the image before that and draw it on the canvas.
-        
-            So if user has just drawn, history could be [img0, img1, img2, img3]
-            pop img3
-            Draw img2 on the canvas
-        
-            If the user hasn't just drawn - for example, they are clicking the undo button 
-            several times to undo a series of lines - then remove the last image from 
-            history and draw that 
-        
-            So history could be [img0, img1, img2]
-            Pop img2 
-            Draw img1 on the canvas
-        */
-        function undoHistory() {
-            history.pop();          // remove the last drawing from the 'history' array
+      /*
+        If the user has just drawn, you need to remove the last drawing from the
+        history; and then remove the image before that and draw it on the canvas.
 
-            let previousPicture = history[history.length - 1];
+        So if user has just drawn, history could be [img0, img1, img2, img3]
+        pop img3
+        Draw img2 on the canvas
 
-            // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clearRect
-            // ctx.clearRect(x, y, width, height); --> erases the pixels in a rectangular 
-            // area by setting them to transparent black [rgba(0,0,0,0)]
-            context.clearRect(0, 0, canvas.width, canvas.height);
+        If the user hasn't just drawn - for example, they are clicking the undo button
+        several times to undo a series of lines - then remove the last image from
+        history and draw that
 
-            // if there is a previous drawn picture in the 'history' array then
-            // create a new image object from the previous picture & redraw it
-            if (previousPicture) {
-                let image = new Image();            // create a new image object
-                image.src = previousPicture;        // set the image source
+        So history could be [img0, img1, img2]
+        Pop img2
+        Draw img1 on the canvas
+      */
+      function undoHistory() {
+        history.pop(); // remove the last drawing from the 'history' array
 
-                // add an event listener to the image to know 
-                // when the image is ready to load
-                image.addEventListener('load', function() {
-                    context.drawImage(this, 0, 0);  // redraw the image
-                })
-            }
+        let previousPicture = history[history.length - 1];
+
+        // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/clearRect
+        // ctx.clearRect(x, y, width, height); --> erases the pixels in a rectangular
+        // area by setting them to transparent black [rgba(0,0,0,0)]
+        context.clearRect(0, 0, canvas.width, canvas.height);
+
+        // if there is a previous drawn picture in the 'history' array then
+        // create a new image object from the previous picture & redraw it
+        if (previousPicture) {
+          let image = new Image(); // create a new image object
+          image.src = previousPicture; // set the image source
+
+          // add an event listener to the image to know
+          // when the image is ready to load
+          image.addEventListener("load", function () {
+            context.drawImage(this, 0, 0); // redraw the image
+          });
         }
+      }
     </script>
-</body>
-
+  </body>
 </html>

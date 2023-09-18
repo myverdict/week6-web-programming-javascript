@@ -2,7 +2,7 @@
 
 /* map container with a defined height & width */
 #mapid {
-    height: 600px;
-    width: 600px;
-    border: 1px solid plum;
+  height: 600px;
+  width: 600px;
+  border: 1px solid plum;
 }
