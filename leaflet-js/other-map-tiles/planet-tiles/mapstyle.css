@@ -1,13 +1,13 @@
 /* This CSS file is used with planets.html */
 
 #mars-mapid {
-    width: 600px;
-    height: 500px;
-    border: 1px orangered solid;
+  width: 600px;
+  height: 500px;
+  border: 1px orangered solid;
 }
 
 #moon-mapid {
-    width: 600px;
-    height: 500px;
-    border: 1px gray solid;
+  width: 600px;
+  height: 500px;
+  border: 1px gray solid;
 }
